@@ -5,7 +5,7 @@ class ArrayGenerator():
 
     def GenerateArray(self,size):
 
-            arr = [random.randint(1, 100) for _ in range(size)]
+            arr = [random.randint(1, 10000) for _ in range(size)]
             random.shuffle(arr)
            # print(arr)
             # print(arr)

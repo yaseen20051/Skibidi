@@ -1,5 +1,10 @@
 from Scripts.Sorter import Sorter
 
+ # Insertion Sort : Putting elements in the right place
+
+ # AverageCase and WorstCase are O(n^2)
+
+ # BestCase  = O(n)
 
 class InsertionSorting(Sorter):
     def __init__(self, arr):
@@ -7,15 +12,24 @@ class InsertionSorting(Sorter):
         self.size = len(arr)
 
     def Sort(self):
-        for i in range (1,self.size):
-                # print("i = ",i)
-            for j in range (0,i):
+        for i in range(1, self.size):
+            key = self.arr[i]
+            j = i - 1
 
-                # print("j = ", j)
-                if(self.arr[i]<self.arr[j]):
-                    self.SwapFunction(self.arr,i,j)
+
+            while j >= 0 and self.arr[j] > key:
+                self.arr[j + 1] = self.arr[j]
+                j -= 1
+
+            self.arr[j + 1] = key
+
         return self.arr
 
+    def get_arr(self):
+        return self.arr
 
+    def set_arr(self, arr):
+        self.arr = arr
+        self.size = len(arr)
 
 
