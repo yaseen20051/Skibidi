@@ -12,7 +12,6 @@ if __name__ == '__main__':
     bubble_Sorter = BubbleSorting([])
     selection_Sorter = SelectionSorting([])
     insertion_sorter = InsertionSorting([])
-    sizes = [1000, 5000, 10000,15000,20000]
     bubble_times,selection_times,insertion_times = [],[],[]
     for size in sizes:
         arr = generator.GenerateArray(size)
@@ -27,6 +26,7 @@ if __name__ == '__main__':
 
     plt.figure(figsize=(10, 5))
 
+
     plt.plot(sizes, bubble_times, 'bo-', label="Bubble Sort")
     plt.plot(sizes, selection_times, 'ro-', label="Selection Sort")
     plt.plot(sizes, insertion_times, 'yo-', label="Insertion Sort")
@@ -37,3 +37,12 @@ if __name__ == '__main__':
     plt.legend()
     plt.grid()
     plt.show()
+
+    print("\nExecution Times for Sorting Algorithms:\n")
+    print(f"{'Input Size (N)':<15}{'Bubble Sort (ms)':<20}{'Selection Sort (ms)':<20}{'Insertion Sort (ms)':<20}")
+    print("=" * 75)
+
+    for i in range(len(sizes)):
+        print(f"{sizes[i]:<15}{bubble_times[i]:<20.2f}{selection_times[i]:<20.2f}{insertion_times[i]:<20.2f}")
+
+    print("\n◆ Running time for Bubble Sort, Selection Sort, and Insertion Sort is printed above.")
