@@ -12,6 +12,7 @@ if __name__ == '__main__':
     bubble_Sorter = BubbleSorting([])
     selection_Sorter = SelectionSorting([])
     insertion_sorter = InsertionSorting([])
+    sizes = [1000, 5000, 10000, 15000, 20000]
     bubble_times,selection_times,insertion_times = [],[],[]
     for size in sizes:
         arr = generator.GenerateArray(size)
