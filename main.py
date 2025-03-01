@@ -47,3 +47,6 @@ if __name__ == '__main__':
         print(f"{sizes[i]:<15}{bubble_times[i]:<20.2f}{selection_times[i]:<20.2f}{insertion_times[i]:<20.2f}")
 
     print("\n◆ Running time for Bubble Sort, Selection Sort, and Insertion Sort is printed above.")
+
+
+## Latex Report Link : https://www.overleaf.com/4977366428ymwxgwtsmvrd#a97b77
