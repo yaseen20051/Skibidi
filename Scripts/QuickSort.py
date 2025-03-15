@@ -12,22 +12,23 @@ class QuickSort(Sorter):
     def partition(self, low, high):
         #choosing pivot at random from the range of sub arrays (low, high)
         pivot = random.randint(low, high) 
-        #Swap the pivot with the last element 
-        self.SwapFunction(self.arr, pivot, high)
-        pivot = high
+        #Swap the pivot with the first element 
+        self.SwapFunction(self.arr, pivot, low)
+        pivot = low
 
         #Index that helps in placing the pivot in its right place 
-        #smalller(i) -> pivot(i+1) -> greater(i+2)
-        i = low - 1
+        #pivot(low) -> smalller(1:lastS1) -> greater(firstUnkown:high)
+        lastS1 = low
+        fisrtUnkown = low + 1
 
-        #Traversing the array to shift all elments from low to i to the right
-        for j in range(low, high):
-            if self.arr[j] < self.arr[pivot]:
-                i+=1
-                self.SwapFunction(self.arr, i, j)
+        #Traversing the array to shift all elments from low to lastS1 to high
+        for fisrtUnkown in range(low + 1, high + 1):
+            if self.arr[fisrtUnkown] < self.arr[pivot]:
+                lastS1+=1
+                self.SwapFunction(self.arr, fisrtUnkown, lastS1)
         
-        self.SwapFunction(self.arr, i+1, pivot)
-        return i + 1
+        self.SwapFunction(self.arr, lastS1, pivot)
+        return lastS1
     
     #Sorting implementation
     def quickSort(self, low, high):
@@ -43,5 +44,6 @@ class QuickSort(Sorter):
     def Sort(self):
         self.quickSort(0, len(self.arr) - 1)
         return self.arr
+
 
         
