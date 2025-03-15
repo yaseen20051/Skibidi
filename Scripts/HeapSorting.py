@@ -1,6 +1,8 @@
 class HeapSorting():
 
-
+    def __init__(self):
+        self.arr = []
+        self.size = 0
     def BuildMaxHeap(self,arr):
          n = len(arr)
          for i in range (len(arr)//2,-1 , -1):  ## fixed from len(arr)//2 -1 to start from the first parent
@@ -19,11 +21,18 @@ class HeapSorting():
             arr[index],arr[maxIndex] = arr[maxIndex],arr[index]
             self.heapify(arr,n,maxIndex)
 
-    def Sort(self,arr):
-        heapSize = len(arr)
-        self.BuildMaxHeap(arr)
-        print(arr)
-        for i in range (len(arr)-1,-1,1):
-            arr[i],arr[0] =  arr[0],arr[i]
+    def Sort(self):
+        heapSize = len(self.arr)
+        self.BuildMaxHeap(self.arr)
+        print(self.arr)
+        for i in range (len(self.arr)-1,-1,1):
+            self.arr[i],self.arr[0] =  self.arr[0],self.arr[i]
             heapSize = heapSize-1
-            self.heapify(arr,heapSize,0)
+            self.heapify(self.arr,heapSize,0)
+
+    def get_arr(self):
+        return self.arr
+
+    def set_arr(self, arr):
+        self.arr = arr
+        self.size = len(arr)
