@@ -1,4 +1,4 @@
-from Sorter import Sorter
+from Scripts.Sorter import Sorter
 import random 
 
 #Best case O(nlogn)
