@@ -1,4 +1,4 @@
-from QuickSort import QuickSort
+from Scripts.QuickSort import QuickSort
 
 class QuickSearch():
     def __init__(self, arr):
@@ -12,7 +12,7 @@ class QuickSearch():
 
         if low <= high:
             pivotIndex = self.qs.partition(low, high)
-            print(pivotIndex)
+            #print(pivotIndex)
             #If the given index is the pivot
             if pivotIndex == key:
                 return self.arr[pivotIndex]

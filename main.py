@@ -67,5 +67,3 @@ if __name__ == '__main__':
 
     print("\n◆ Running time for Bubble Sort, Selection Sort, Insertion Sort, Quick sort, Merge sort, and Heap sort is printed above.")
 
-
-## Latex Report Link : https://www.overleaf.com/4977366428ymwxgwtsmvrd#a97b77
