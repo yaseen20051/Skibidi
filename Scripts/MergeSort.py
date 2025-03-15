@@ -1,10 +1,5 @@
 from Scripts.Sorter import Sorter
 
-# Bubble Sort : Swapping elements untill being Swapped
-
-# AverageCase and WorstCase are O(n^2)
-
-# BestCase  = O(n)
 
 class MergeSort (Sorter):
     def __init__(self):
