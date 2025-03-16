@@ -3,7 +3,7 @@ class HeapSorting():
 
     def BuildMaxHeap(self,arr):
          n = len(arr)
-         for i in range (len(arr)//2,-1 , -1):  ## fixed from len(arr)//2 -1 to start from the first parent
+         for i in range (n//2 -1 ,-1 , -1):  ## fixed from len(arr)//2 -1 to start from the first parent
              self.heapify(arr,n,i);
 
     def heapify(self,arr,n,index):  ## guarantee that the father is the max elemnt between his children O(lgn)
@@ -20,10 +20,10 @@ class HeapSorting():
             self.heapify(arr,n,maxIndex)
 
     def Sort(self,arr):
-        heapSize = len(arr)
+        # heapSize = len(arr)
         self.BuildMaxHeap(arr)
         print(arr)
-        for i in range (len(arr)-1,-1,1):
+        for i in range (len(arr)-1,0,-1):
             arr[i],arr[0] =  arr[0],arr[i]
-            heapSize = heapSize-1
-            self.heapify(arr,heapSize,0)
+            # heapSize = heapSize-1
+            self.heapify(arr,i,0)
