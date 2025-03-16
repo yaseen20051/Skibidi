@@ -6,7 +6,7 @@ class HypridSorting (MergeSort, InsertionSorting):
     def __init__(self):
         self.arr = []
         self.size = 0
-        self.threshold = 10
+        self.threshold = 1
 
     def Sort(self):
         self.arr = self.hypridSort(self.arr)
