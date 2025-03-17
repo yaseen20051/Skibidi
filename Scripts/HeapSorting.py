@@ -25,7 +25,7 @@ class HeapSorting():
         heapSize = len(self.arr)
         self.BuildMaxHeap(self.arr)
         print(self.arr)
-        for i in range (len(self.arr)-1,-1,1):
+        for i in range (len(self.arr)-1,-1,-1):
             self.arr[i],self.arr[0] =  self.arr[0],self.arr[i]
             heapSize = heapSize-1
             self.heapify(self.arr,heapSize,0)
