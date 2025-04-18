@@ -37,6 +37,7 @@ class RBT:
         self.root = None
         self.sourceFile = sourceFile
         self.dataBaseLoaded = False
+        self.load()
 
 
     def load(self):
@@ -64,7 +65,7 @@ class RBT:
             self.root = new_node
         else:
             if(self.search(value)):
-                return print("ERROR: Word already in the dictionary!")
+                return False
             currentNode = self.root
             parent = None
             while currentNode != None:
@@ -83,6 +84,7 @@ class RBT:
         self.fix_tree(new_node)
         if(self.dataBaseLoaded):
           self.save(new_node.value)
+        return True
     def inOrderTraverse(self,node):  ## print elements from min ---> mac
         if node:
             if node.left != None :
@@ -208,7 +210,10 @@ class RBT:
         else:
             if(node!=None): return  self.numberOfNodes(node.left)+self.numberOfNodes(node.right)+1
 
-
+    def printTreeDetails(self):
+        print("Height of the Tree = "+str(self.height(self.root)))
+        print("Black Height of the Root = "+str(self.blackNodes(self.root)))
+        print("Number of words = "+str(self.numberOfNodes(self.root)))
     def displayTree(self):
             if not self.root:
                 print("Tree is empty.")
