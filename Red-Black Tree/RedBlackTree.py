@@ -33,15 +33,38 @@ class RBNode:
         else:
             self.color = 'R'
 class RBT:
-    def __init__(self):
+    def __init__(self,sourceFile):
         self.root = None
+        self.sourceFile = sourceFile
+        self.dataBaseLoaded = False
 
 
+    def load(self):
+        my_file = open(self.sourceFile, "r")
+
+        # reading the file
+        data = my_file.read()
+
+        # replacing end splitting the text
+        # when newline ('\n') is seen.
+        data_into_list = data.split("\n")
+        # print(data_into_list)
+        my_file.close()
+
+        for word in data_into_list:
+            self.insert(word)
+        self.dataBaseLoaded = True
+    def save(self,word):
+        file1 = open(self.sourceFile, "a")  # append mode
+        file1.write("\n"+word)
+        file1.close()
     def insert(self,value):
         new_node = RBNode(value)
         if self.root == None:
             self.root = new_node
         else:
+            if(self.search(value)):
+                return print("ERROR: Word already in the dictionary!")
             currentNode = self.root
             parent = None
             while currentNode != None:
@@ -58,6 +81,8 @@ class RBT:
             else: parent.left = new_node
             new_node.parent = parent
         self.fix_tree(new_node)
+        if(self.dataBaseLoaded):
+          self.save(new_node.value)
     def inOrderTraverse(self,node):  ## print elements from min ---> mac
         if node:
             if node.left != None :
@@ -136,14 +161,13 @@ class RBT:
 
     def search(self,value):
 
-        valueNotExist =  "Word \""+str(value)+"\" isn't in the Dictionary "
-        valueExist =  "Word \""+str(value)+"\" is in the Dictionary "
+
         pivot = self.root
         while(pivot != None):
-            if(pivot.value == value): return valueExist
+            if(pivot.value == value): return True
             elif(value>pivot.value): pivot = pivot.right
             else: pivot = pivot.left
-        return valueNotExist
+        return False
 
 
     def rotateRight(self,node):
